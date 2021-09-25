@@ -5,8 +5,6 @@ import jdk.nashorn.internal.scripts.JO;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
-import  java.util.*;
-import java.util.TimeZone;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.*;
@@ -19,7 +17,7 @@ public class Entertainment extends JFrame implements ActionListener {
     private JPanel panelNorth, panelWest, panelCenter, panelSouth;
     private JLabel lblHeading;
     private JLabel imageIcon;
-    private JLabel lbl, lbl1, lbl2, lbl3, lbl4, lbl5,lbl6;
+    private JLabel lbl,lbl0, lbl1, lbl2, lbl3, lbl4, lbl5,lbl6;
     String[] events = {" ", "New Life Spring Jive | Clifton 1st | Secret Sunset",
             "Wild Food Land Forage Walk",
             "Blooming Spring Festival ",
@@ -31,6 +29,7 @@ public class Entertainment extends JFrame implements ActionListener {
             "PHUNK-DA-PHATT",
             "Majozi and friends at The Clubhouse ",
             "Spirituals Concert"};
+    private JLabel lblEventCode;
     private JComboBox comboBox;
     private JLabel lblText;
     private JLabel lblDate;
@@ -38,8 +37,8 @@ public class Entertainment extends JFrame implements ActionListener {
     private JLabel lblLocation;
     private JLabel lblCost;
     private  JLabel lblSecurity;
-    private JLabel spc0, spc, spc1, spc2, spc3, spc4,spc5;
-    private JLabel spcV0, spcV, spcV14, spcV1, spcV2, spcV3, spcV4,spcV5;
+    private JLabel spc01,spc0, spc, spc1, spc2, spc3, spc4,spc5;
+    private JLabel spcV01,spcV0, spcV, spcV14, spcV1, spcV2, spcV3, spcV4,spcV5;
     private JButton btnSave, btnClear, btnQuit;
     private Font ft, ft1, ft2;
 
@@ -49,12 +48,13 @@ public class Entertainment extends JFrame implements ActionListener {
         lblHeading = new JLabel("Entertainment");
         imageIcon = new JLabel();
 
-
         panelCenter = new JPanel();
 
         panelWest = new JPanel();
+        spcV01 =new JLabel(" ");
+        lblEventCode = new JLabel(" ");
         spc0 = new JLabel(" ");
-        lbl = new JLabel("   Choose event:");
+        lbl0 = new JLabel("   Choose event: ");
         comboBox = new JComboBox(events);
         lblText = new JLabel(" ");
         lblDate = new JLabel(" ");
@@ -71,6 +71,8 @@ public class Entertainment extends JFrame implements ActionListener {
         lblSecurity = new JLabel(" ");
         spcV5 = new JLabel(" ");
 
+        spc01 = new JLabel(" ");
+        lbl = new JLabel("   Event Code: ");
         spc = new JLabel(" ");
         lbl1 = new JLabel("  About: ");
         spc1 = new JLabel(" ");
@@ -103,7 +105,7 @@ public class Entertainment extends JFrame implements ActionListener {
         lblHeading.setForeground(Color.white);
 
         //CENTER PANEL
-        panelCenter.setLayout(new GridLayout(15, 1));
+        panelCenter.setLayout(new GridLayout(17, 1));
         panelCenter.setBackground(Color.decode("#eceff1"));
         comboBox.setFont(ft1);
         lblText.setFont(ft2);
@@ -114,8 +116,9 @@ public class Entertainment extends JFrame implements ActionListener {
         lblTime.setForeground(Color.black);
 
         //WEST PANEL
-        panelWest.setLayout(new GridLayout(15, 1));
+        panelWest.setLayout(new GridLayout(17, 1));
         lbl.setFont(ft1);
+        lbl0.setFont(ft1);
         lbl1.setFont(ft1);
         lbl2.setFont(ft1);
         lbl3.setFont(ft1);
@@ -138,8 +141,10 @@ public class Entertainment extends JFrame implements ActionListener {
         panelNorth.add(lblHeading);
         panelNorth.add(imageIcon);
         //WEST
-        panelWest.add(spc0);
+        panelWest.add(spc01);
         panelWest.add(lbl);
+        panelWest.add(spc0);
+        panelWest.add(lbl0);
         panelWest.add(spc);
         panelWest.add(lbl1);
         panelWest.add(spc1);
@@ -152,10 +157,9 @@ public class Entertainment extends JFrame implements ActionListener {
         panelWest.add(lbl5);
         panelWest.add(spc5);
         panelWest.add(lbl6);
-
-
         //CENTER
-
+        panelCenter.add(spcV01);
+        panelCenter.add(lblEventCode);
         panelCenter.add(spcV0);
         panelCenter.add(comboBox);
         panelCenter.add(spcV14);
@@ -206,6 +210,7 @@ public class Entertainment extends JFrame implements ActionListener {
                             break;
 
                         case "New Life Spring Jive | Clifton 1st | Secret Sunset":
+                            lblEventCode.setText("01");
                             lblText.setText("SPRING’s coming & it's time to jump for JOY!");
                             lblDate.setText("12 September 2021 ");
                             lblTime.setText("17:15");
@@ -216,6 +221,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Wild Food Land Forage Walk":
+                            lblEventCode.setText("02");
                             lblText.setText("Educational walk and talk in and around the herb gardens ;D");
                             lblDate.setText("5 September 2021 ");
                             lblTime.setText("10:00 - 13:00");
@@ -226,6 +232,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Blooming Spring Festival ":
+                            lblEventCode.setText("03");
                             lblText.setText("Join us on this epic spring Festival!");
                             lblDate.setText("4 September 2021 ");
                             lblTime.setText("16:00 - 21:00");
@@ -235,6 +242,7 @@ public class Entertainment extends JFrame implements ActionListener {
                             break;
 
                         case "The Chef. The Bartender":
+                            lblEventCode.setText("04");
                             lblText.setText("The best of both worlds brought togatha 4 U!! ");
                             lblDate.setText("10 September 2021 ");
                             lblTime.setText("12:00 - 16:00");
@@ -245,6 +253,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Beaumont Student Wines Tasting Afternoon":
+                            lblEventCode.setText("05");
                             lblText.setText("Be the 1st to taste our latest wine brands");
                             lblDate.setText("11 September 2021 ");
                             lblTime.setText("14:00 - 17:30");
@@ -255,6 +264,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "A night of soulful music with Lia Elise":
+                            lblEventCode.setText("06");
                             lblText.setText("Lia Elise, a 19 year old singer/songwriter/recording artist ");
                             lblDate.setText("12 September 2021 ");
                             lblTime.setText("14:00 - 17:30");
@@ -265,6 +275,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Live Music at Camissa":
+                            lblEventCode.setText("07");
                             lblText.setText("Spring is in the air ! Come and join us at Camissa Coffee Co. on Saturday ");
                             lblDate.setText("17 September 2021 ");
                             lblTime.setText("14:00 - 17:30");
@@ -275,6 +286,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Players Fund High Tea":
+                            lblEventCode.setText("08");
                             lblText.setText("Lets celebrate the First Lady of Springbok Rugby");
                             lblDate.setText("19 September 2021 ");
                             lblTime.setText("10:00 - 12:30");
@@ -285,6 +297,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "PHUNK-DA-PHATT":
+                            lblEventCode.setText("09");
                             lblText.setText("Get ready to party like it’s 1999!! ");
                             lblDate.setText("18 September 2021 ");
                             lblTime.setText("17:00 - 21:30");
@@ -295,6 +308,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Majozi and friends at The Clubhouse ":
+                            lblEventCode.setText("010");
                             lblText.setText("Lets enjoy this sunday with fun outside activities ");
                             lblDate.setText("26 September 2021 ");
                             lblTime.setText("12:00 - 16:30");
@@ -305,6 +319,7 @@ public class Entertainment extends JFrame implements ActionListener {
 
 
                         case "Spirituals Concert":
+                            lblEventCode.setText("011");
                             lblText.setText("Come and find your inner peace with God.");
                             lblDate.setText("3 October 2021 ");
                             lblTime.setText("12:00 - 15:30");
